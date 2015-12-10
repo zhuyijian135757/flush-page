@@ -1,4 +1,4 @@
-package com.web.page;
+package net.flyingfat.page;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

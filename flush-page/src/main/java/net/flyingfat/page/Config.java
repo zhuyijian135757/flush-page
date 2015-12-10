@@ -1,4 +1,4 @@
-package com.web.page;
+package net.flyingfat.page;
 
 public class Config {
 
