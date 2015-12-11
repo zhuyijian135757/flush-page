@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.Random;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -91,16 +92,9 @@ public class Flush {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally{
-				try {
-					if(input!=null){
-						input.close();
-					}
-					if(out!=null){
-						out.close();
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				IOUtils.closeQuietly(input);
+				IOUtils.closeQuietly(out);
+				client.getConnectionManager().shutdown();
 			}
 		}
 
