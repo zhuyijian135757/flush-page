@@ -58,12 +58,14 @@ public class UserAgentUtil {
 			String line;
 			while((line=reader.readLine())!=null){
 				int len=0;
-				if((len=line.indexOf("Dalvik"))!=-1){
+				if((len=line.indexOf("Dalvik"))!=-1 || (len=line.indexOf("Mozilla"))!=-1){
 					lines.add(line.substring(len,line.length()-1));
 				}
 			}
 			
 			IOUtils.writeLines(lines, null, output);
+			//output.flush();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally{
@@ -75,7 +77,7 @@ public class UserAgentUtil {
 	
 	public static void main(String args[]){
 	
-		
+		convert();
 	}
 
 }
